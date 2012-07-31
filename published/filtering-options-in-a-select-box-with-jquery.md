@@ -55,7 +55,7 @@ All of our JavaScript will be in a self-contained function <code>filterSelectBox
 ```javascript
 (function filterSelectBox() {
 
-  $("#secondary").attr("disabled", "disabled");
+  $("#secondary").prop("disabled", true);
 
   var arr = $.makeArray(document.getElementById("secondary"));
 
@@ -75,9 +75,9 @@ In the following <em>if statement</em>, we want to check to see if the user has 
 
 ```javascript
 if (primaryCat !== "") {
-  $("#secondary").removeAttr("disabled");
+  $("#secondary").prop("disabled", false);
 } else {
-  $("#secondary").attr("disabled", "disabled");
+  $("#secondary").prop("disabled", true);
 }
 ```
 
@@ -88,7 +88,7 @@ $.each(arr, function() {
   var subCatClass = $(this).attr("class"),
     subCatValue = $(this).val();
   if (subCatClass === primaryCat) {
-    txt %2B= '' %2B subCatValue %2B '';
+    txt += '<option class="' + subCatClass + '" value="' + subCatValue + '">' + subCatValue + '<\/option>';
   }
   $("#secondary").empty().append(txt);
 });
