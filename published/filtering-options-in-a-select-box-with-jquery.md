@@ -1,7 +1,7 @@
 Filtering Options in a Select Box with jQuery
 =============================================
 
-I recently created a web form for a client that had two elements, where the options presented to the user in the second element were determined by the option selected in the first “ element. It is a nifty feature to automatically filter options for the user, while providing validation at the same time. It can be a time saver for the user, even if it is only a matter of milliseconds. It also makes form validation stronger knowing that your user won’t get sloppy when filling out your form.
+I recently created a web form for a client that had two elements, where the options presented to the user in the second element were determined by the option selected in the first element. It is a nifty feature to automatically filter options for the user, while providing validation at the same time. It can be a time saver for the user, even if it is only a matter of milliseconds. It also makes form validation stronger knowing that your user won’t get sloppy when filling out your form.
 
 Take out the Guess Work
 -----------------------
@@ -17,29 +17,33 @@ In the HTML below, I’ve created two elements, each with several options. The f
 
 We want the second element to be disabled by default, but rather than specifying this in the HTML, we’ll use JavaScript. This way if the user has Javascript disabled, the form will still be functional.
 
-<pre><code>  Drink Category
+```html
+<form>
+  <label for="primary">Drink Category</label>
+  <select name="primary" id="primary">
+    <option value="">-- Select a Drink --</option>
+    <option value="Beer">Beer</option>
+    <option value="Juice">Juice</option>
+    <option value="Soda">Soda</option>
+  </select>
 
-    -- Select a Drink --
-    Beer
-    Juice
-    Soda
-
-
-  Flavor Selection
-
-    -- Select a Flavor --
-    Apple
-    Budweiser
-    Coke
-    Corona
-    Grape
-    Leomonade
-    Miller
-    Orange
-    Root Beer
-    Sam Adams
-    Sprite
-</code></pre>
+  <label for="secondary">Flavor Selection</label>
+  <select name="secondary" id="secondary">
+    <option class="" value="">-- Select a Flavor --</option>
+    <option class="Juice" value="Apple">Apple</option>
+    <option class="Beer" value="Budweiser">Budweiser</option>
+    <option class="Soda" value="Coke">Coke</option>
+    <option class="Beer" value="Corona">Corona</option>
+    <option class="Juice" value="Grape">Grape</option>
+    <option class="Juice" value="Leomonade">Leomonade</option>
+    <option class="Beer" value="Miller">Miller</option>
+    <option class="Juice" value="Orange">Orange</option>
+    <option class="Soda" value="Root Beer">Root Beer</option>
+    <option class="Beer" value="Sam Adams">Sam Adams</option>
+    <option class="Soda" value="Sprite">Sprite</option>
+  </select>
+</form>
+```
 
 Making it Cool with JavaScript
 ------------------------------
