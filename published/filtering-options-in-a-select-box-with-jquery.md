@@ -1,21 +1,21 @@
-Filtering Options in a Select Box with jQuery — Daniel Marino
-=============================================================
+Filtering Options in a Select Box with jQuery
+=============================================
 
-I recently created a web form for a client that had two <code>elements, where the options presented to the user in the second</code> element were determined by the option selected in the first “ element. It is a nifty feature to automatically filter options for the user, while providing validation at the same time. It can be a time saver for the user, even if it is only a matter of milliseconds. It also makes form validation stronger knowing that your user won’t get sloppy when filling out your form.
+I recently created a web form for a client that had two elements, where the options presented to the user in the second element were determined by the option selected in the first “ element. It is a nifty feature to automatically filter options for the user, while providing validation at the same time. It can be a time saver for the user, even if it is only a matter of milliseconds. It also makes form validation stronger knowing that your user won’t get sloppy when filling out your form.
 
 Take out the Guess Work
 -----------------------
 
-In my example, the first <code>element contains primary drink categories, and the second</code> element contains specific drinks that fall under one of those categories. It might be confusing to some users if they were to select “Juice” as their primary option and included in their secondary options were “Sam Adams” and “Coke”. Let’s assume that the user submitted the form, having selected “Juice” and “Sam Adams”. What the heck are you suppose with that data? You don’t know if the user wants some sort of juice or specifically “Sam Adams”. Why give the user an opportunity to make a mistake? Take the guess-work out of the form and make it as simple as possible for the user to interact with.
+In my example, the first element contains primary drink categories, and the second element contains specific drinks that fall under one of those categories. It might be confusing to some users if they were to select “Juice” as their primary option and included in their secondary options were “Sam Adams” and “Coke”. Let’s assume that the user submitted the form, having selected “Juice” and “Sam Adams”. What the heck are you suppose with that data? You don’t know if the user wants some sort of juice or specifically “Sam Adams”. Why give the user an opportunity to make a mistake? Take the guess-work out of the form and make it as simple as possible for the user to interact with.
 
 Using the <a href="http://jquery.com">jQuery</a> library and the JavaScript provided in this tutorial, we will be able to validate these fields, making sure that the user actually selects a drink and flavor. We will also be able to filter flavor results based on what the user chooses for a primary drink. This means if the user selects “Soda” for a drink, we’ll only let them see the flavors: “Coke”, “Root Beer”, and “Sprite”.
 
 Setting up the HTML
 -------------------
 
-In the HTML below, I’ve created two <code>elements, each with several options. The first</code> element contains drink options for choosing a drink category. The second <code>element contains flavor of the drink. You’ll notice that in the</code> elements nested within the second <code>element we’ve also specified a class attribute which matches up with its parent category. We’ll be using the value of the options in the drink</code> element to match up with the classes in the flavor “ element in our JavaScript.
+In the HTML below, I’ve created two elements, each with several options. The first element contains drink options for choosing a drink category. The second element contains flavor of the drink. You’ll notice that in the elements nested within the second element we’ve also specified a class attribute which matches up with its parent category. We’ll be using the value of the options in the drink element to match up with the classes in the flavor element in our JavaScript.
 
-We want the second “ element to be disabled by default, but rather than specifying this in the HTML, we’ll use JavaScript. This way if the user has Javascript disabled, the form will still be functional.
+We want the second element to be disabled by default, but rather than specifying this in the HTML, we’ll use JavaScript. This way if the user has Javascript disabled, the form will still be functional.
 
 <pre><code>  Drink Category
 
@@ -44,9 +44,9 @@ We want the second “ element to be disabled by default, but rather than specif
 Making it Cool with JavaScript
 ------------------------------
 
-This tutorial uses the jQuery library to make life easier for our validation and filtering needs. I’m a big fan of jQuery and I highly recommend it. I realize that using jQuery can add a significant amount of page load time. While we want to be able to validate the form, we also don’t want to have the user wait for JavaScript to load before they start filling out the form. This is why I prefer placing JavaScript right before the closing “ tag. The first thing we need to do is to include the jQuery library. You can download and host it yourself, or you can do what I do and let Google host it for you.
+This tutorial uses the jQuery library to make life easier for our validation and filtering needs. I’m a big fan of jQuery and I highly recommend it. I realize that using jQuery can add a significant amount of page load time. While we want to be able to validate the form, we also don’t want to have the user wait for JavaScript to load before they start filling out the form. This is why I prefer placing JavaScript right before the closing tag. The first thing we need to do is to include the jQuery library. You can download and host it yourself, or you can do what I do and let Google host it for you.
 
-All of our JavaScript will be in a self-contained function <code>filterSelectBox()</code>. In our function, the first thing we’ll do is disable the second <code>select</code> element. We’re using JavaScript to do this, rather than HTML, in case the user has JavaScript disabled. If we used HTML and the user had JavaScript disabled, the drink element would never become enabled. We’ll also create an array of all the drink options from the second <code>element. Then we’ll assign it to a variable. We’ll be filtering out options in this array based on the</code> the user chooses from the first select box.
+All of our JavaScript will be in a self-contained function <code>filterSelectBox()</code>. In our function, the first thing we’ll do is disable the second <code>select</code> element. We’re using JavaScript to do this, rather than HTML, in case the user has JavaScript disabled. If we used HTML and the user had JavaScript disabled, the drink element would never become enabled. We’ll also create an array of all the drink options from the second element. Then we’ll assign it to a variable. We’ll be filtering out options in this array based on the the user chooses from the first select box.
 
 ```javascript
 (function filterSelectBox() {
@@ -58,7 +58,7 @@ All of our JavaScript will be in a self-contained function <code>filterSelectBox
 })();
 ```
 
-Now that we have our array assigned to a variable, we want to create an event handler that executes whenever the user <em>changes</em> the state of the first <code>element (which has an id of “category”). In this event handler, we also want to define a couple more variables. The first variable, `primaryCat` will equal the value of the first</code> element, and the second variable, <code>txt</code> equals an empty string.
+Now that we have our array assigned to a variable, we want to create an event handler that executes whenever the user <em>changes</em> the state of the first element (which has an id of “category”). In this event handler, we also want to define a couple more variables. The first variable, `primaryCat` will equal the value of the first element, and the second variable, <code>txt</code> equals an empty string.
 
 ```javascript
 $("#secondary").change(function() {
