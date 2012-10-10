@@ -28,62 +28,74 @@ Let’s Look at Some Code Shall We
 
 I’ll start by showing the final code that I came up with for accessing the Cloud Files server, access containers on the server, and retrieve objects’ (images and videos in my case) URIs. All of this is achieved using the Cloud Files API.
 
-    <?php
+```php
+<?php
 
-    // Includes the Cloud Files PHP API
-    require('cloudfiles.php');
+// Includes the Cloud Files PHP API
+require('cloudfiles.php');
 
-    // Create a new instance of the authentication Class
-    $auth = new CF_Authentication(<USERNAME>, <API KEY>);
+// Create a new instance of the authentication Class
+$auth = new CF_Authentication(<USERNAME>, <API KEY>);
 
-    // Returns a valid storage token and allows you
-    // to connect to the Cloud Files Platform
-    $auth->authenticate();
+// Returns a valid storage token and allows you
+// to connect to the Cloud Files Platform
+$auth->authenticate();
 
-    // Allows us to connect to Cloud Files and
-    // make changes to containers
-    $conn = new CF_Connection($auth);
+// Allows us to connect to Cloud Files and
+// make changes to containers
+$conn = new CF_Connection($auth);
 
-    // Get the container where the client's assets are stored
-    $cont = $conn->get_container(<CONTAINER NAME>);
+// Get the container where the client's assets are stored
+$cont = $conn->get_container(<CONTAINER NAME>);
 
-    // Return Array of the objects inside the client's container
-    $objs = $cont->list_objects();
+// Return Array of the objects inside the client's container
+$objs = $cont->list_objects();
 
-    // Get the URI for the client's container
-    $cdnuri = $cont->cdn_uri . "/";
+// Get the URI for the client's container
+$cdnuri = $cont->cdn_uri . "/";
 
-    // Go through the Array of objects and output them with links
-    for ($i = 0; $i < (count($objs)); $i++) {
-      // Only show objects that don't have
-      // a period in the object name
-      if (strpos($objs[$i], ".") !== false) {
-        echo '<a href="' . $cdnuri . $objs[$i] . '">' . $cdnuri . $objs[$i] . '</a>';
-      }
-    }
+// Go through the Array of objects and output them with links
+for ($i = 0; $i < (count($objs)); $i++) {
+  // Only show objects that don't have
+  // a period in the object name
+  if (strpos($objs[$i], ".") !== false) {
+    echo '<a href="' . $cdnuri . $objs[$i] . '">' . $cdnuri . $objs[$i] . '</a>';
+  }
+}
 
-    ?>
+?>
+```
 
 Now I’ll take the time to go through each line of the code to further explain it.
 
-    require('cloudfiles.php');
+```php
+require('cloudfiles.php');
+```
 
 I probably don’t need to further explain this, but this required file contains the Cloud Files API PHP bindings. You obviously can’t run any of this code without it, and if you try to, you’ll get errors. Also, you don’t need to include the following files, but they need to be in the same location as [cloudfiles.php](http://github.com/rackspace/php-cloudfiles/blob/master/cloudfiles.php): [cloudfiles_exceptions.php](http://github.com/rackspace/php-cloudfiles/blob/master/cloudfiles_exceptions.php) and [cloudfiles_http.php](http://github.com/rackspace/php-cloudfiles/blob/master/cloudfiles_http.php).
 
-    $auth = new CF_Authentication(<USER NAME>, <API KEY>);
-    $auth->authenticate();
+```php
+$auth = new CF_Authentication(<USER NAME>, <API KEY>);
+$auth->authenticate();
+```
 
 Creates a new instance of the authentication Class and returns a valid storage token (assuming you use the correct username and API key), thus allowing you to connect to the Cloud Files platform. Use your Rackspace Cloud username as the username for the API, and obtain your API access key from the Rackspace Cloud Control Panel in the Your Account > API Access section.
 
-    $conn = new CF_Connection($auth);
+```php
+$conn = new CF_Connection($auth);
+```
 
 This command is what actually allows us to connect to Cloud Files and make changes like creating and deleting containers. It also allows us to return existing containers, and their properties.
 
-    $cont = $conn->get_container(<CONTAINER NAME>);
+```php
+$cont = $conn->get_container(<CONTAINER NAME>);
+```
 
 As it indicates, this gets a specific container. You’ll want to replace <CONTAINER NAME> with the actual name of the container. In my client’s case, there is a separate container for each client.
 
-    $objs = $cont->list_objects();
+```php
+$objs = $cont->list_objects();
+```
 
 The objects in a container are the media assets: image and video files. The list_objects() function returns the objects’ URI in an array. There are some parameters you can pass into this function, which you can use to limit the number of items returned, as well as filter the results. In my case, using the function without any parameters worked just find, but take a look in the required [cloudfiles.php](http://github.com/rackspace/php-cloudfiles/blob/master/cloudfiles.php) file to see the list of the parameters you can pass in.
 
@@ -91,15 +103,19 @@ There’s an important thing to note with objects inside of containers. You can 
 
 It’s also important to know that the list_objects() function does not include the URI, which brings us to the next line of code.
 
-    $cdnuri = $cont->cdn_uri . "/";
+```php
+$cdnuri = $cont->cdn_uri . "/";
+```
 
 I had originally hardcoded the URI of the container I was working with while coding this up, but quickly started running into issues when testing the code with different containers. Silly me for not realizing this earlier, but each container has a unique URI. After I learned that, I realized I needed a dynamic way to determine the containers URI. In my coding, I accidentally discovered that calling the get_container() function returns an array with all kinds of cool information related to the container, including the containers full URI. We add a backslash to the end of this so when we combine it with the objects URI, we have a valid URL.
 
-    for ($i = 0; $i < (count($objs)); $i++) {
-      if (strpos($objs[$i], ".") !== false) {
-        echo '<a href="' . $cdnuri . $objs[$i] . '">' . $cdnuri . $objs[$i] . '</a>';
-      }
-    }
+```php
+for ($i = 0; $i < (count($objs)); $i++) {
+  if (strpos($objs[$i], ".") !== false) {
+    echo '<a href="' . $cdnuri . $objs[$i] . '">' . $cdnuri . $objs[$i] . '</a>';
+  }
+}
+```
 
 This for statement goes through every object in the array that was returned using the list_objects() function so that we can output a link to each object (image or video file in my case). I mentioned earlier that the list_objects() function also returns pseudo directories. If you try to view one of these pseudo directories, you’ll get a 404 error page. Knowing this, it doesn’t make much sense to output these pseudo directories.
 

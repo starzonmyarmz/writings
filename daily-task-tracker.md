@@ -9,7 +9,7 @@ Just days before the competition was announced, I had started working on my own 
 
 The Daily Task Tracker uses HTML5, Many CSS3 attributes (such as gradients, transitions, border-radi, etc…), and the jQuery JavaScript library (hosted by Google, therefore not counting against my 10K). It also uses HTML5 Storage, also known as Local Storage. Mark Pilgrim has the perfect explination of what Local Storage is:
 
->Simply put, it’s a way for web pages to store named key/value pairs locally, within the client web browser. Like cookies, this data persists even after you navigate away from the web site, close your browser tab, exit your browser, or what have you.
+> Simply put, it’s a way for web pages to store named key/value pairs locally, within the client web browser. Like cookies, this data persists even after you navigate away from the web site, close your browser tab, exit your browser, or what have you.
 
 This means that tasks and the bubbles you check off are stored locally in your browser, so if you close or refresh the web page the data will be saved. Some day I might go into a more lengthy explination as to how some of the functionality of the Daily Task Tracker works.
 
