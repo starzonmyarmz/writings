@@ -1,6 +1,8 @@
 Daily Task Tracker
 ==================
 
+<em>Originally published on August 5, 2010</em>
+
 [Mix Online](http://visitmix.com/) and [An Event Apart](http://aneventapart.com/) have teamed up to offer the [10K Apart Challenge](http://10k.aneventapart.com/1). This is a fun challenge where developers only have 10K to build a web app.
 
 Just days before the competition was announced, I had started working on my own web app called the [Daily Task Tracker](http://dailytasktracker.com/). In short, it is a quick and easy-to-use chart to track daily tasks and the amount of time you spend on them. It is inspired by Dave Seah’s printable [Emergent Task Timer](http://davidseah.com/blog/the-printable-ceo-iii-emergent-task-timing/). After hearing the announcement of the 10K Apart Challenge, I knew that I had the perfect project for it. I rapidly sped up my development schedule and worked my tail off to get my entry ready in under a week.

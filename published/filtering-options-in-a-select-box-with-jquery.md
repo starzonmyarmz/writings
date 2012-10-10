@@ -1,6 +1,8 @@
 Filtering Options in a Select Box with jQuery
 =============================================
 
+<em>Originally published on January 25, 2010</em>
+
 I recently created a web form for a client that had two elements, where the options presented to the user in the second element were determined by the option selected in the first element. It is a nifty feature to automatically filter options for the user, while providing validation at the same time. It can be a time saver for the user, even if it is only a matter of milliseconds. It also makes form validation stronger knowing that your user won’t get sloppy when filling out your form.
 
 Take out the Guess Work
