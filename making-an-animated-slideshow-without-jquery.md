@@ -1,11 +1,10 @@
 # Making an Animated Slideshow without jQuery
 
-I've seen and used jQuery to create banner slideshows many, many times. Sometimes it's the only reason why jQuery is even included in a website. In this time where mobile devices are heavily used, we cannot afford to waste precious bytes, and its important to streamline our code as much as possible. With CSS transitions at our disposal we no longer need to lean against jQuery to make animated slideshows.
+I've seen and used [jQuery](http://jquery.com) to create banner slideshows many, many times. Sometimes it's the only reason why jQuery is even included in a website. In this time where mobile devices are heavily used, we cannot afford to waste precious bytes, and its important to streamline our code as much as possible. With CSS transitions at our disposal we no longer need to lean against jQuery to make animated slideshows.
 
 ## View the Slideshow in Action
 
-<pre class="codepen" data-height="300" data-type="result" data-href="EDCwI" data-user="starzonmyarmz"><code></code></pre>
-<script async src="http://codepen.io:/assets/embed/ei.js"></script>
+[Check out the demo on CodePen](http://codepen.io/starzonmyarmz/pen/EDCwI)
 
 Some of you might be thinking this slideshow won't work in browsers that do not support CSS transitions. This is true, but that doesn't bother me so much. I think the tradeoff is worth it. This slideshow degrades gracefully - if the browser doesn't support CSS transitions it will simply jump from slide to slide with out the sliding transition.
 
