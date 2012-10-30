@@ -14,7 +14,7 @@ The HTML can be as complex or as lightweight as you need it to be. The CSS and J
 
 I wrote the CSS using SASS (and Compass) for convenience sake. Since the width and height properties need to be explicitly written in several areas it makes sense to make those variables. If you'd like to see what the compiled CSS looks like, you can view source the example.
 
-The JavaScript is simply swapping out the classes ``.slide-in`` and ``.slide-out`` on the child elements of ``.slides``. I've also set the variable int which lets you easily change the interval between slide transitions.
+The JavaScript is simply swapping out the classes ``.slide-in`` and ``.slide-out`` on the child elements of ``.slides``. I've also set the variable ``int`` which lets you easily change the interval between slide transitions.
 
 ## Save Some Bytes
 
