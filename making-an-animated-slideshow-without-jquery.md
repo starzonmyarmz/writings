@@ -6,15 +6,15 @@ I've seen and used [jQuery](http://jquery.com) to create banner slideshows many,
 
 [Check out the demo on CodePen](http://codepen.io/starzonmyarmz/pen/EDCwI)
 
-Some of you might be thinking this slideshow won't work in browsers that do not support CSS transitions. This is true, but that doesn't bother me so much. I think the tradeoff is worth it. This slideshow degrades gracefully - if the browser doesn't support CSS transitions it will simply jump from slide to slide with out the sliding transition.
+Some of you might be thinking this slideshow won't work in browsers that do not support CSS transitions. This is true, but that doesn't bother me so much. I think the tradeoff is worth it. This slideshow degrades gracefully - if the browser doesn't support CSS transitions it will simply jump from slide to slide without the sliding transition.
 
 ## Some Notes About the Code
 
-The HTML can be as complex or as lightweight as you need it to be. The way the CSS and JS is looking at direct children of the parent element .slides. This means you can use a variety of markup (img, div, anchor, etc…) to suite your needs.
+The HTML can be as complex or as lightweight as you need it to be. The way the CSS and JS is looking at direct children of the parent element ``.slides``. This means you can use a variety of markup (``img``, ``div``, ``a``, etc…) to suite your needs.
 
 I wrote the CSS using SASS (and Compass) for convenience sake. Since the width and height properties need to be explicitly written in several areas it makes sense to make those variables. If you'd like to see what the compiled CSS looks like, you can view source the example.
 
-The JavaScript is simply swapping out the classes _slide-in_ and _slide-out_ on the child elements of .slides. I've also set the variable int which lets you easily change the interval between slide transitions.
+The JavaScript is simply swapping out the classes ``.slide-in`` and ``.slide-out`` on the child elements of ``.slides``. I've also set the variable int which lets you easily change the interval between slide transitions.
 
 ## Save Some Bytes
 
