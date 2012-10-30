@@ -1,6 +1,6 @@
 # Making an Animated Slideshow without jQuery
 
-I've seen and used [jQuery](http://jquery.com) to create banner slideshows many, many times. Sometimes it's the only reason why jQuery is even included in a website. In this time where mobile devices are heavily used, we cannot afford to waste precious bytes, and its important to streamline our code as much as possible. With CSS transitions at our disposal we no longer need to lean against jQuery to make animated slideshows.
+I've seen and used [jQuery](http://jquery.com) to create banner slideshows many, many times. Sometimes it is the only reason why jQuery is even included in a website. In this time where mobile devices are heavily used, we cannot afford to waste precious bytes, and it is important to streamline our code as much as possible. With CSS transitions at our disposal we no longer need to lean against jQuery to make animated slideshows.
 
 ## View the Slideshow in Action
 
