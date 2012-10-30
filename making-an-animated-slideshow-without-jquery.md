@@ -10,7 +10,7 @@ Some of you might be thinking this slideshow won't work in browsers that do not 
 
 ## Some Notes About the Code
 
-The HTML can be as complex or as lightweight as you need it to be. The way the CSS and JS is looking at direct children of the parent element ``.slides``. This means you can use a variety of markup (``img``, ``div``, ``a``, etc…) to suite your needs.
+The HTML can be as complex or as lightweight as you need it to be. The CSS and JS is looking at direct children of the parent element ``.slides``. This means you can use a variety of markup (``img``, ``div``, ``a``, etc…) to suite your needs.
 
 I wrote the CSS using SASS (and Compass) for convenience sake. Since the width and height properties need to be explicitly written in several areas it makes sense to make those variables. If you'd like to see what the compiled CSS looks like, you can view source the example.
 
