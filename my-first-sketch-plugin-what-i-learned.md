@@ -19,7 +19,7 @@ The Sketch API docs are incomplete, and the examples that were there weren't ent
 
 ### Late to the Party
 
-So when I decompressing from this project I realized I belong to the [Team Sketch](http://teamsketch.io/) Slack Team. I wish I had remembered this earlier because there's a channel dedicated to plug in development, and I'm sure I could've have received a lot of help from there. Just scrolling through the last 50 or so messages I saw an assortment of links that would have been useful.
+So while I'm decompressing from this project I'm remembering I belong to the [Team Sketch](http://teamsketch.io/) Slack Team. I wish I had remembered this earlier because there's a channel dedicated to plug in development, and I'm sure I could've have received a lot of help from there. Just scrolling through the last 50 or so messages I saw an assortment of links that would have been useful.
 
 ### Wrap Up
 
