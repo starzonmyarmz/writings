@@ -1,9 +1,3 @@
----
-layout: post
-title:  
-date:   2015-01-29
----
-
 # Install Mcrypt PHP Extension on OSX Yosemite
 _Originally published on January, 29, 2015_
 
